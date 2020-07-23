@@ -25,9 +25,11 @@ The exercise has 3 parts: 	1) Creating a database user and databease table on th
 	
 		NB: 12 is the PostgreSQl version number and may be a diffrent number.
 
-	Assuming 'postgres' is the PostgreSQl super user, create a user called 'newuser1':
+	Assuming 'postgres' is the PostgreSQl super user, create a user called 'newuser1' with permission to create database:
 
 		createuser.exe --createdb --username postgres --no-createrole --pwprompt newuser1
+		
+		NB: set user password to: "newuser1_password" then enter "progres" password
 
 	Then, create a database with the command below
 
@@ -43,5 +45,5 @@ The exercise has 3 parts: 	1) Creating a database user and databease table on th
 
 3) Exporting the database on the command line
 	Back to the command promt, while still in the PostgreSQl directory, run - You may change the outptut folder first.
-		pg_dump -U postgres newdb1 > D:/newdb1.pgsql
+		pg_dump -U postgres newdb1 > D:/CropNuts/Tests-for-GeoSpatial-Data-Scientist-master/outputData/newdb1.pgsql
 
