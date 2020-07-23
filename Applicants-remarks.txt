@@ -1,0 +1,47 @@
+# This file is intended for remarks of the applicant:
+# Name of applicant: Kevin Onga're Oluoch
+
+
+# Introduction
+This exercise has been done using R and PostgreSQl
+The PostgreSQl steps are described below, while the R steps are documented in the R script.
+
+The exercise has 3 parts: 	1) Creating a database user and databease table on the commandline,
+							2) Interpolating the data in R and saving the interpolation surface (spatial Grid) in a database
+							3) Exporting the database on the command line
+
+
+1) Creating a database user and database table on the command prompt
+	Assuming PostgreSQl is installed on a windows 10 computer
+	Open the Command promt: 
+		One way is by
+			win key + shift 
+			A 'run' dialoge pops up
+			type 'cmd' as the name of the program to run and click 'OK'
+
+
+	Move into the bin sub-directory in the PostgreSQl directory:
+		cd C:/Program Files/PostgreSQl/12/bin
+	
+		NB: 12 is the PostgreSQl version number and may be a diffrent number.
+
+	Assuming 'postgres' is the PostgreSQl super user, create a user called 'newuser1':
+
+		createuser.exe --createdb --username postgres --no-createrole --pwprompt newuser1
+
+	Then, create a database with the command below
+
+		createdb -h localhost -p 5432 -U postgres newdb1
+	
+	NB:  Enter superuser ('postgres' by default) password when prompted for a password
+
+2) Interpolating the data in R and saving the interpolation surface (spatial Grid) in a database
+	Load the '2020-07-21 - input data for test GeoSpatial Data Scientist' Rworkspace, 
+	or load the 'Tests-for-GeoSpatial-Data-Scientist-master' Rproject.
+	
+	Then run the 'main.R' script.
+
+3) Exporting the database on the command line
+	Back to the command promt, while still in the PostgreSQl directory, run - You may change the outptut folder first.
+		pg_dump -U postgres newdb1 > D:/newdb1.pgsql
+
